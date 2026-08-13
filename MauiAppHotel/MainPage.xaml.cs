@@ -1,24 +1,29 @@
-﻿namespace MauiAppHotel
+﻿using MauiAppHotel.Services;
+
+namespace MauiAppHotel;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    private readonly ClimaService _climaService;
+
+    public MainPage()
     {
-        int count = 0;
+        InitializeComponent();
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+        _climaService = new ClimaService();
+    }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
+    private async void OnConsultarClimaClicked(object sender, EventArgs e)
+    {
+        lblClima.Text = "Consultando API...";
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        string clima = await _climaService.ObterClimaAsync();
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        lblClima.Text = clima;
+    }
+
+    private async void OnContratarHospedagemClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Views.ContratacaoHospedagem());
     }
 }
