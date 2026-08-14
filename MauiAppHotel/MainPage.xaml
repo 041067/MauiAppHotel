@@ -38,6 +38,10 @@
                 Text="🏨 Fazer uma hospedagem"
                 Clicked="OnContratarHospedagemClicked" />
 
+            <Button
+                Text="🏨 Hospedagens Salvas"
+                Clicked="OnHospedagensSalvasClicked" />
+
         </VerticalStackLayout>
 
     </ScrollView>

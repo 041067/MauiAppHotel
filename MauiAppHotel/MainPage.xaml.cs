@@ -26,4 +26,9 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new Views.ContratacaoHospedagem());
     }
+
+    private async void OnHospedagensSalvasClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Views.HospedagensSalvas());
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MauiAppHotel.Models;
+using MauiAppHotel.Data;
 
 namespace MauiAppHotel
 {
@@ -36,6 +37,11 @@ namespace MauiAppHotel
         public App()
         {
             InitializeComponent();
+
+            using (var db = new HotelDbContext())
+            {
+                db.Database.EnsureCreated();
+            }
 
             MainPage = new NavigationPage(new MainPage());
         }

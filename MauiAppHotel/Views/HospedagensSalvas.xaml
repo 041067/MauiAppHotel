@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiAppHotel.Views.HospedagensSalvas"
+    Title="Hospedagens Salvas">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label
+            Text="Hospedagens Salvas"
+            FontSize="28"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+        <CollectionView
+            x:Name="listaHospedagens">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Padding="15"
+                        Margin="0,5"
+                        StrokeShape="RoundRectangle 10">
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <Label
+                                Text="{Binding NomeQuarto}"
+                                FontSize="20"
+                                FontAttributes="Bold" />
+
+                            <Label
+                                Text="{Binding QtdAdultos, StringFormat='Adultos: {0}'}" />
+
+                            <Label
+                                Text="{Binding QtdCriancas, StringFormat='Crianças: {0}'}" />
+
+                            <Label
+                                Text="{Binding DataCheckIn, StringFormat='Check-in: {0:dd/MM/yyyy}'}" />
+
+                            <Label
+                                Text="{Binding DataCheckOut, StringFormat='Check-out: {0:dd/MM/yyyy}'}" />
+
+                            <Label
+                                Text="{Binding ValorTotal, StringFormat='Valor: R$ {0:F2}'}"
+                                FontAttributes="Bold" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
